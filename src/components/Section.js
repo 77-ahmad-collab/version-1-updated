@@ -23,16 +23,16 @@ const Section = () => {
   const value = useContext(FoodDataContext);
   const { login, log, logout, acess, acessid, proceed } = value;
   // const [auth, setauth] = useState(localStorage.getItem("token"));
-  console.log(acess, "i am authy");
+  // console.log(acess, "i am authy");
   const [t, sett] = useState(false);
   useEffect(() => {
     acessid(localStorage.getItem("token"));
     if (acess == 401) {
-      console.log("not authorized");
+      // console.log("not authorized");
     } else {
-      console.log("authorized");
+      // console.log("authorized");
     }
-    console.log("id for rendering compoent is ahngih", acess);
+    // console.log("id for rendering compoent is ahngih", acess);
   }, [acess, localStorage.getItem("token")]);
   return (
     <DataProvider>
@@ -50,7 +50,7 @@ const Section = () => {
               element={<HomeCard />}
             />
             {/* <Route exact path="/fooddetails" element={<FoodDetails />} /> */}
-            <Route  path="/show/card/:catererid" element={<FoodDetails/>}  />
+            <Route path="/show/card/:catererid" element={<FoodDetails />} />
             <Route
               exact
               path="/fooddetails/appcheckout"

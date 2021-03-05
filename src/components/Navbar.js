@@ -20,7 +20,6 @@ export default function Navbar() {
   const { acessid, acess } = useContext(FoodDataContext);
   useEffect(() => {
     acessid(localStorage.getItem("token"));
-    console.log("my working is okay");
   }, [acess, localStorage.getItem("token")]);
   // const [, setlogin] = useState(true);
   return (
@@ -103,7 +102,7 @@ export default function Navbar() {
                 onClick={() => {
                   localStorage.setItem("token", 401);
                   acessid(localStorage.getItem("token"));
-                  console.log(localStorage.getItem("token"), "join ");
+                  // console.log(localStorage.getItem("token"), "join ");
                   axios.post(
                     "http://damp-headland-05751.herokuapp.com/user/logout"
                   );
@@ -141,7 +140,7 @@ export default function Navbar() {
                 onClick={() => {
                   localStorage.setItem("token", 401);
                   acessid(localStorage.getItem("token"));
-                  console.log(localStorage.getItem("token"), "join ");
+                  // console.log(localStorage.getItem("token"), "join ");
                   setModalShow(true);
                 }}
               >
@@ -193,7 +192,7 @@ export default function Navbar() {
                 onClick={() => {
                   localStorage.setItem("token", 401);
                   acessid(localStorage.getItem("token"));
-                  console.log(localStorage.getItem("token"), "join ");
+                  // console.log(localStorage.getItem("token"), "join ");
                   axios.post(
                     "http://damp-headland-05751.herokuapp.com/user/logout"
                   );
@@ -270,7 +269,7 @@ function LogIn(props) {
       return { ...val, [name]: value };
     });
   };
-  console.log(value);
+  // console.log(value);
   console.log(localStorage.getItem("token"));
   // useEffect(() => {
   //   const local = localStorage.getItem("token");
@@ -291,7 +290,7 @@ function LogIn(props) {
   }, [show]);
   const [btn, setbtn] = useState(false);
   const handlesubmit = (e) => {
-    console.log("working good");
+    // console.log("working good");
     e.preventDefault();
     const options = {
       method: "POST",
@@ -311,16 +310,16 @@ function LogIn(props) {
     const callme = async () => {
       const response = await axios(options)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           fcartrerid(response.data);
-          console.log(cartrerid, "i ma the cartere id");
+          // console.log(cartrerid, "i ma the cartere id");
           localStorage.setItem("token", response.data);
           acessid(response.data);
 
-          console.log(localStorage.getItem("token"), "i am token");
+          // console.log(localStorage.getItem("token"), "i am token");
           setTimeout(() => {
             localStorage.setItem("token", 401);
-            console.log("timeout executed");
+            // console.log("timeout executed");
             // return () => clearTimeout(tt);
           }, 86400000);
           // localStorage.setItem(response.data);
@@ -331,7 +330,7 @@ function LogIn(props) {
           setshow(true);
 
           localStorage.setItem("token", 401);
-          console.log(localStorage.getItem("token"), "i am token i error");
+          // console.log(localStorage.getItem("token"), "i am token i error");
           // localStorage.setItem(error.response.status);
           acessid(401);
         });
@@ -544,19 +543,19 @@ function SignUp(props) {
       setsuccess(true);
     }
     if (val.pass.length >= 8) {
-      console.log("length is greater");
+      // console.log("length is greater");
       setlen(false);
     } else {
-      console.log("not greater");
+      // console.log("not greater");
       setlen(true);
     }
   }, [val.pass, val.repass]);
   useEffect(() => {
     if (val.pass.length >= 8) {
-      console.log("length is greater");
+      // console.log("length is greater");
       setlen(false);
     } else {
-      console.log("not greater");
+      // console.log("not greater");
       setlen(false);
     }
   }, []);
@@ -573,7 +572,7 @@ function SignUp(props) {
       })
       .then(
         (response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setresponse(response.data);
         }
         // (error) => {
@@ -582,7 +581,7 @@ function SignUp(props) {
       );
 
     // axios.get("testcarter@example.com"")
-    console.log(addd, "add");
+    // console.log(addd, "add");
     e.preventDefault();
     console.log(val);
     setval({
