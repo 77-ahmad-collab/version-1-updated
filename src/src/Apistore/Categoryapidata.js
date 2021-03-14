@@ -7,11 +7,12 @@ export const Fetchcategorydata = () => {
   return async (dispatch, getState) => {
     const id = localStorage.getItem("token");
     console.log(id, "id in category component");
+
     const response = await axios.get(
-      `http://damp-headland-05751.herokuapp.com/show/category/${id}`
+      `https://damp-headland-05751.herokuapp.com/show/category/${id}`
     );
     // setloa(false);
-    console.log(response, "coupon api data");
+    // console.log(response, "coupon api data");
     // console.log(response, "response");
 
     const data = await response.data;

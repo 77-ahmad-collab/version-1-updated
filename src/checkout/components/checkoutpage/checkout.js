@@ -19,7 +19,7 @@ const CheckOut = () => {
   //   value.caid(id);
   // }, [id]);
   return (
-    <>
+    <div className={styles.App}>
       <div className={styles.containercheckout}>
         {/* <Navbar /> */}
         <div className={`${styles.rowcheckout} ${styles.setbody}`}>
@@ -118,7 +118,7 @@ const CheckOut = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default CheckOut;

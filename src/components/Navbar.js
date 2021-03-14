@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./header.css";
+import Appstyles from "./header.module.css";
 import PhoneInput from "react-phone-number-input";
 import styles from "./logIn.module.css";
 import logo from "../src/logo.png";
@@ -7,7 +7,7 @@ import * as Rs from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-import "./loginstyles.css";
+import Lo from "./loginstyles.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Login from "../Login/Login";
 import axios from "axios";
@@ -18,20 +18,21 @@ export default function Navbar() {
   const [signUpShow, setSignUp] = React.useState(false);
   const [modalShowpop, setModalShowpop] = React.useState(false);
   const { acessid, acess } = useContext(FoodDataContext);
+  const [show, setshow] = useState(false);
   useEffect(() => {
     acessid(localStorage.getItem("token"));
   }, [acess, localStorage.getItem("token")]);
   // const [, setlogin] = useState(true);
   return (
     <>
-      <nav>
-        <input id="nav-toggle" type="checkbox" />
-        <div class="logo navbtn">
+      <nav className={Appstyles.mainnav}>
+        {/* <input id="nav-toggle" type="checkbox" /> */}
+        <div className={Appstyles.appnav}>
+          {/* class={`${Appstyles.logo} ${Appstyles.navbtn}`} */}
           {/* <NavLink to="/"> */}
-          <img src={logo} />
+          <img src={logo} width="200px" alt="myimage" height="50px" />
           {/* </NavLink> */}
-
-          <li>
+          {/* <li>
             {acess == 401 ? (
               <a
                 type="button"
@@ -81,8 +82,8 @@ export default function Navbar() {
                 </a>
               </NavLink>
             )}
-          </li>
-          {acess == 401 ? (
+          </li> */}
+          {/* {acess == 401 ? (
             ""
           ) : (
             <li>
@@ -112,9 +113,9 @@ export default function Navbar() {
                 Logout
               </a>
             </li>
-          )}
+          )} */}
         </div>
-        <ul class="links">
+        <ul className={`${show ? `${Appstyles.shown}` : `${Appstyles.hiden}`}`}>
           {/* 
           <li>
             <a href="#home">Offer</a>
@@ -125,7 +126,7 @@ export default function Navbar() {
 
           <li>
             {acess == 401 ? (
-              <a
+              <button
                 type="button"
                 href="#work"
                 style={{
@@ -136,6 +137,7 @@ export default function Navbar() {
                   paddingBottom: 10,
                   color: "white",
                   borderRadius: 5,
+                  marginTop: "10px",
                 }}
                 onClick={() => {
                   localStorage.setItem("token", 401);
@@ -145,10 +147,10 @@ export default function Navbar() {
                 }}
               >
                 Join
-              </a>
+              </button>
             ) : (
               <NavLink to="/dashboard">
-                <a
+                <button
                   type="button"
                   href="#work"
                   style={{
@@ -159,6 +161,7 @@ export default function Navbar() {
                     paddingBottom: 10,
                     color: "white",
                     borderRadius: 5,
+                    margin: "10px",
                   }}
                   // onClick={() => {
                   //   localStorage.setItem("token", 401);
@@ -168,7 +171,7 @@ export default function Navbar() {
                   // }}
                 >
                   Dashboard
-                </a>
+                </button>
               </NavLink>
             )}
           </li>
@@ -176,9 +179,9 @@ export default function Navbar() {
             ""
           ) : (
             <li>
-              <a
+              <button
                 type="button"
-                className="hideit"
+                className={Appstyles.hideit}
                 href="#work"
                 style={{
                   backgroundColor: "#009E7F",
@@ -200,7 +203,7 @@ export default function Navbar() {
                 }}
               >
                 Logout
-              </a>
+              </button>
             </li>
           )}
           {/* <li>
@@ -222,18 +225,19 @@ export default function Navbar() {
             </a>
           </li> */}
         </ul>
-        {/* <label
-          for="nav-toggle"
-          // style={{ border: "2px solid red", zIndex: "1" }}
+        {/* <label>
+          for="nav-toggle" // style={{ border: "2px solid red", zIndex: "1" }}
           className="icon-burger"
-      
           <GiHamburgerMenu />
           <div className="line"></div>
           <div className="line"></div>
           <div className="line"></div>
         </label> */}
+        <div onClick={() => setshow(!show)} className={Appstyles.tog}>
+          {<GiHamburgerMenu />}
+        </div>
       </nav>
-      <div className="body_aaa">
+      <div className={Lo.body_aaa}>
         <LogIn
           show={modalShow}
           onmyShow={() => setSignUp(true)}
@@ -270,7 +274,7 @@ function LogIn(props) {
     });
   };
   // console.log(value);
-  console.log(localStorage.getItem("token"));
+  // console.log(localStorage.getItem("token"));
   // useEffect(() => {
   //   const local = localStorage.getItem("token");
   //   // if (local !== 401) {
@@ -305,7 +309,7 @@ function LogIn(props) {
       //   email: value.email,
       //   password: value.password,
       // },
-      url: "http://damp-headland-05751.herokuapp.com/user/login",
+      url: "https://damp-headland-05751.herokuapp.com/user/login",
     };
     const callme = async () => {
       const response = await axios(options)
@@ -771,7 +775,7 @@ function SignUp(props) {
 
 function CustomerHistory(props) {
   const [value, setvalue] = useState("");
-  console.log(value);
+  // console.log(value);
   return (
     <div className={styles.modalForm}>
       <Rs.Modal

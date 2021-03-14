@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FoodDataContext } from "./FoodData.js";
-import "./foodmenudetails.css";
+import Appstyles from "./foodmenudetails.module.css";
 
 export default function FoodMenuDetails(props) {
   const value = useContext(FoodDataContext);
@@ -56,16 +56,24 @@ export default function FoodMenuDetails(props) {
   };
 
   return (
-    <div className="headcard" style={{ backgroundColor: "rgb(228, 224, 224)" }}>
-      <div className="card">
+    <div
+      className={Appstyles.headcard}
+      style={{ backgroundColor: "rgb(228, 224, 224)" }}
+    >
+      <div className={Appstyles.card}>
         {products.map((val, index) =>
           val.dishes.map((a) => {
             if (a.caterer_id == props.cid && check != val.category) {
               check = val.category;
               return (
-                <div className="foodnavbar">
-                  <div className="heading" key={index}>
-                    <h5>
+                <div className={Appstyles.foodnavbar}>
+                  <div className={Appstyles.heading} key={index}>
+                    <h5
+                      style={{
+                        borderBottom: " rgba(263, 261, 161, 0.726)",
+                        paddingBottom: "20px",
+                      }}
+                    >
                       <span style={{ color: " rgba(163, 161, 161, 0.726)" }}>
                         . . .{" "}
                       </span>
@@ -83,49 +91,57 @@ export default function FoodMenuDetails(props) {
                       // console.log(f, "i am f");
                       return (
                         <div
-                          className="fooddata"
+                          className={Appstyles.fooddata}
                           key={i}
                           style={{ width: "100%", paddingBottom: "5%" }}
                         >
-                          <div className="food12">
+                          <div className={Appstyles.food12}>
                             <span
-                              className="foodname2"
+                              className={Appstyles.foodname2}
                               style={{ marginBottom: "30px" }}
                             >
                               <strong>{f.p_name}</strong>
                             </span>
                             <br />
                             <span
-                              className="foodaddress2"
+                              className={Appstyles.foodaddress2}
                               style={{
                                 paddingTop: "10px",
                                 fontFamily: " Lato, sans-serif",
-                                fontSize: "13px",
+                                fontSize: "14px",
                                 marginTop: "30px",
                                 fontWeight: "500",
+
                                 color: "rgb(119, 121, 140)",
                               }}
                             >
-                              {f.p_description}
+                              {f.p_description}shs
                             </span>
                           </div>
 
-                          <div className="food22">
-                            <div className="col22" style={{ fontSize: 12 }}>
-                              <span className="col22_child1" name="fromhead">
+                          <div className={Appstyles.food22}>
+                            <div
+                              className={Appstyles.col22}
+                              style={{ fontSize: 12 }}
+                            >
+                              <span
+                                className={Appstyles.col22_child1}
+                                name="fromhead"
+                              >
                                 From
                               </span>
                               <br />
+                              {/* <span className={Appstyles.col22_child2}> */}
                               <span className="col22_child2">
                                 <strong>PKR:{f.p_minamount}</strong>
                               </span>
                             </div>
-                            <div className="col33">
-                              <span className="hidden_price">
+                            <div className={Appstyles.col33}>
+                              <span className={Appstyles.hidden_price}>
                                 <strong>PKR:{f.p_minamount}</strong>
                               </span>
                               <span
-                                className="delivery_button2"
+                                className={Appstyles.delivery_button2}
                                 onClick={() => addCart(myfoodid)}
                                 type="button"
                               >
@@ -143,18 +159,18 @@ export default function FoodMenuDetails(props) {
           })
         )}
       </div>
-      <div className="addtocart">
+      <div className={Appstyles.addtocart}>
         <header>🛒 {cart.length} Item</header>
         <hr />
 
-        <div className="cartitems">
+        <div className={Appstyles.cartitems}>
           {cart.map(({ product_id, p_name, count, p_minamount }) => (
             <div>
-              <div className="item" key={product_id}>
-                <div className="quantity">
+              <div className={Appstyles.item} key={product_id}>
+                <div className={Appstyles.quantity}>
                   <li>
                     <button
-                      className="countplus"
+                      className={Appstyles.countplus}
                       onClick={() => increase(product_id)}
                     >
                       {" "}
@@ -166,7 +182,7 @@ export default function FoodMenuDetails(props) {
                   </li>
                   <li>
                     <button
-                      className="countminus"
+                      className={Appstyles.countminus}
                       onClick={() => reduction(product_id)}
                     >
                       {" "}
@@ -175,12 +191,14 @@ export default function FoodMenuDetails(props) {
                   </li>
                 </div>
 
-                <div className="itemdetails">
-                  <span className="itemname">{p_name}</span>
-                  <span className="item_price">PKR:{p_minamount * count}</span>
+                <div className={Appstyles.itemdetails}>
+                  <span className={Appstyles.itemname}>{p_name}</span>
+                  <span className={Appstyles.item_price}>
+                    PKR:{p_minamount * count}
+                  </span>
                   <span>
                     <button
-                      className="remove"
+                      className={Appstyles.remove}
                       onClick={() => removeProduct(product_id)}
                     >
                       {" "}
@@ -193,25 +211,25 @@ export default function FoodMenuDetails(props) {
           ))}
         </div>
         {cart.length === 0 ? (
-          <div className="checkout_btn">
+          <div className={Appstyles.checkout_btn}>
             <div className="pl-2 align-align-items-center text-white mt-2">
               {cart.length === 0 ? "Cart is empty" : null}
             </div>
-            <div className="p1hide">🛒 {cart.length} Item</div>
-            <div className="p2">PKR {total}</div>
+            <div className={Appstyles.p1hide}>🛒 {cart.length} Item</div>
+            <div className={Appstyles.p2}>PKR {total}</div>
           </div>
         ) : (
           <NavLink to="/fooddetails/appcheckout">
             <div
-              className="checkout_btn"
+              className={Appstyles.checkout_btn}
               onClick={() => {
                 console.log(cart[0].d_caterer_id, "i am cart");
                 value.caid(cart[0].d_caterer_id);
               }}
             >
-              <div className="p1">Checkout</div>
-              <div className="p1hide">🛒 {cart.length} Item</div>
-              <div className="p2">PKR:{total}</div>
+              <div className={Appstyles.p1}>Checkout</div>
+              <div className={Appstyles.p1hide}>🛒 {cart.length} Item</div>
+              <div className={Appstyles.p2}>PKR:{total}</div>
             </div>
           </NavLink>
         )}

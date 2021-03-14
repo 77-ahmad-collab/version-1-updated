@@ -1,6 +1,6 @@
 import React, { Component, useContext, useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import { DataProvider } from "./CardData.js";
+import DataProvider from "./CardData.js";
 import HomeCard from "./HomeCard.js";
 import Header from "./Header";
 import FoodDetails from "./FoodDetails.js";
@@ -43,12 +43,12 @@ const Section = () => {
               <Header />
               {/* <HomeCard /> */}
             </Route>
-
+            {/* 
             <Route
               exact
               path="/product/:searchItem/:searchCategory"
               element={<HomeCard />}
-            />
+            /> */}
             {/* <Route exact path="/fooddetails" element={<FoodDetails />} /> */}
             <Route path="/show/card/:catererid" element={<FoodDetails />} />
             <Route

@@ -1,28 +1,30 @@
 import React from "react";
-import "../App.css";
+import Appstyles from "../App.module.css";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
 export default function CardN(props) {
-  const des = props.detail.slice(0, 80);
+  // const des = props.detail.slice(0, 80);
   return (
-    <Link to={`/show/card/${props.cid}`}>
-      <button className="cardhead">
+    <Link to={`/show/card/${props.id}`}>
+      <button style={{ margin: "10px" }} className={Appstyles.cardhead}>
         <Card
           style={{
-            width: "19rem",
+            width: "20rem",
             padding: "0px",
             float: "left",
-
-            backgroundColor: "white",
-            margin: "15px",
+            height: "28rem",
           }}
           key={props.id}
         >
-          <Card.Img variant="top" src={props.imgsrc} className="cardimg" />
+          <Card.Img
+            variant="top"
+            src={props.imgsrc}
+            className={Appstyles.cardimg}
+          />
           {props.feat !== "" ? (
-            <span className="featuredtrue">{props.feat}</span>
+            <span className={Appstyles.featuredtrue}>{props.feat}</span>
           ) : (
             ""
           )}
@@ -64,19 +66,19 @@ export default function CardN(props) {
                   color: "rgb(119, 121, 140)",
                 }}
               >
-                {des}...
+                {props.caterer}...
               </Card.Text>
             )}
             <strong>
               <Card.Text style={{ fontSize: "14px" }}>
-                {props.caterer}
+                {/* {props.caterer}jkwbjks */}
               </Card.Text>
             </strong>
 
             {props.isitcaterer == 1 ? (
               <Card.Text style={{ fontSize: "14px" }}>{props.town}</Card.Text>
             ) : (
-              <></>
+              <> </>
             )}
           </Card.Body>
           <Card.Footer
@@ -89,7 +91,7 @@ export default function CardN(props) {
             {props.isitcaterer == 1 ? (
               <>
                 <Button
-                  className="hello"
+                  className={Appstyles.hello}
                   variant="primary"
                   style={{ float: "right", fontSize: "12px" }}
                 >
@@ -104,14 +106,24 @@ export default function CardN(props) {
                     width: "48%",
                   }}
                 >
-                  {props.delivery}
+                  <h3
+                    style={{
+                      paddingTop: "10px",
+                      fontFamily: " Lato, sans-serif",
+                      fontSize: "15px",
+                      fontWeight: "700",
+                      color: " rgb(13, 17, 54)",
+                    }}
+                  >
+                    {props.delivery}
+                  </h3>
                 </Card.Text>
               </>
             ) : (
               <>
                 {/* <NavLink exact to="/fooddetails"> */}
                 <Button
-                  className="hello"
+                  className={Appstyles.hello}
                   variant="primary"
                   style={{ float: "right", fontSize: "14px" }}
                 >

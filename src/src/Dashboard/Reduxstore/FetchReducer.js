@@ -13,9 +13,11 @@ const initialstate = {
   orderlist: [],
   customerlist: [],
   loader: true,
+
   orderloader: true,
   custloader: true,
   couploader: true,
+  cardslist: [],
 };
 
 export default function reducer(state = initialstate, action) {
@@ -46,6 +48,11 @@ export default function reducer(state = initialstate, action) {
         ...state,
         customerlist: action.payload.data,
         custloader: action.payload.load,
+      };
+    case "CARDSDATA":
+      return {
+        ...state,
+        cardslist: action.payload,
       };
     case EDIT:
       const productlist = [...state.productlist];

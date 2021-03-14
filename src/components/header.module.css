@@ -1,4 +1,4 @@
-.bg-img {
+.bgimg {
   /* The image used */
   margin-top: 0%;
   min-height: 690px;
@@ -183,10 +183,10 @@ nav .links {
   justify-content: space-around;
   align-items: center;
 }
-nav .links li {
+li {
   list-style: none;
 }
-nav .links a {
+nav a {
   display: block;
   padding: 0;
   font-size: 14px;
@@ -215,6 +215,12 @@ nav .icon-burger .line {
 }
 .hiddennav {
   display: none;
+}
+.spin {
+  /* border: 3px solid red; */
+  text-align: center !important;
+  font-size: 40px;
+  padding: 30px;
 }
 @media screen and (max-width: 768px) {
   /* .hideit {
@@ -440,5 +446,95 @@ nav .icon-burger .line {
 @media screen and (max-width: 768px) {
   .navbtn li {
     display: inline;
+  }
+}
+nav {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #f1f3f8;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 5%;
+  height: 100px;
+}
+nav button {
+  border: none;
+  outline: none;
+}
+nav button:focus {
+  border: none;
+  outline: none;
+}
+.appnav {
+  /* border: 2px solid red; */
+  display: flex !important;
+}
+.logo {
+  width: 100px !important;
+  height: 100px !important;
+  /* align-self: flex-start !important; */
+}
+@media screen and (min-width: 768px) {
+  .tog {
+    display: none;
+    /* top: 10px;  position: absolute; */
+  }
+  .shown {
+    display: flex;
+    align-items: center;
+  }
+  .hiden {
+    display: flex;
+    align-items: center;
+    /* border: 3px solid #009e7f; */
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainnav {
+    /* border: 2px solid yellow; */
+    display: block !important;
+    height: auto;
+    position: relative;
+  }
+  .appnav img {
+    margin-top: 10px;
+  }
+  .shown {
+    /* background-color: white !important; */
+    /* border: 2px solid firebrick; */
+    width: 150px;
+    transition: all 1s;
+    margin-left: auto;
+    padding: 10px;
+    z-index: 20;
+    /* align-items: center !important; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hiden {
+    display: none;
+    transition: 1s;
+  }
+  .shown button {
+    width: 150px !important;
+  }
+  .tog {
+    display: inline;
+
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    z-index: 10;
+    font-size: 30px;
   }
 }

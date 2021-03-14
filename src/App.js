@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import Appstyles from "./App.module.css";
 import Section from "./components/Section.js";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
@@ -10,7 +10,7 @@ import HomeCard from "./components/HomeCard.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./Login/Login";
 // import AddProdConatiner from "./components/AddProdContainer.js"
-import { DataProvider } from "./components/CardData.js";
+import DataProvider from "./components/CardData.js";
 import { CatererDataProvider } from "./components/Caterers.js";
 import { FoodDataProvider } from "./components/FoodData.js";
 // import SideNavPage from './components/SideNavbar';
@@ -25,7 +25,7 @@ function App() {
     <DataProvider>
       <FoodDataProvider>
         <CatererDataProvider>
-          <div className="App">
+          <div className={Appstyles.App}>
             <BrowserRouter>
               {/* <Switch>
                 <Route exact path="/">

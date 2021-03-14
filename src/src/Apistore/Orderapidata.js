@@ -5,7 +5,7 @@ export const Fetchorderdata = () => {
     const id = localStorage.getItem("token");
     console.log(id, "id in api ordrr component");
     const response = await axios.get(
-      `http://damp-headland-05751.herokuapp.com/show/orders/${id}`
+      `https://damp-headland-05751.herokuapp.com/show/orders/${id}`
     );
     console.log(response, "order api data");
     // console.log(response, "response");

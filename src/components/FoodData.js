@@ -146,6 +146,26 @@ export const FoodDataProvider = (props) => {
   const caid = (val) => {
     setca_id(val);
   };
+  const [lo_card, setlo_card] = useState(false);
+  const lo_card1 = (value) => {
+    setlo_card(value);
+  };
+  const [filcards, setfilcards] = useState([]);
+  const fil = (val) => {
+    setfilcards(val);
+  };
+  const [search, setsearch] = useState(false);
+  const setsear = (val) => {
+    setsearch(val);
+  };
+  const [term, setterm] = useState("");
+  const ter = (val) => {
+    setterm(val);
+  };
+  const [catcards, setcatcards] = useState([]);
+  const cad = (val) => {
+    setcatcards(val);
+  };
   const value = {
     products: [foodproducts, setFoodProducts],
     cart: [cart, setCart],
@@ -183,6 +203,16 @@ export const FoodDataProvider = (props) => {
     email: email,
     ca_id: ca_id,
     caid: caid,
+    lo_card: lo_card,
+    lo_card1: lo_card1,
+    fil: fil,
+    filcards: filcards,
+    search: search,
+    setsear: setsear,
+    term: term,
+    ter: ter,
+    catcards: catcards,
+    cad: cad,
   };
 
   return (

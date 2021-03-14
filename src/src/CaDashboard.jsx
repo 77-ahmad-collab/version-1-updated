@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import MenuBar from "./Dashboard/Navbar/MenuBar";
 import Sidebar from "./Dashboard/Navbar/Sidebar";
@@ -35,7 +35,7 @@ const CaDashboard = () => {
       {/* <MenuBar />
       <Sidebar /> */}
       <Dashboard />
-      <App />
+      {/* <App /> */}
     </>
     // </Provider>
   );

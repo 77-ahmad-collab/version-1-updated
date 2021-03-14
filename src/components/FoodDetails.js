@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar.js";
 import { useParams } from "react-router-dom";
-import "./fooddetails.css";
+import Appstyles from "./fooddetails.module.css";
 import styles from "./style.module.css";
 import FoodNavbar from "./FoodNavbar.js";
 import FoodMenuDetails from "./FoodMenuDetails.js";
