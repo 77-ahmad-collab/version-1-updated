@@ -156,37 +156,37 @@ function DeliverySchedule(props) {
     const date = parseInt(e.target.value.slice(8, 10));
     const hour = parseInt(e.target.value.slice(11, 13));
     const min = parseInt(e.target.value.slice(14, 16));
-    console.log(year, month, date, hour, min);
+    // console.log(year, month, date, hour, min);
     const myyfutureDate = new Date(year, month - 1, date, hour, min, 0);
     const tempdate = `${year}-${month}-${date}`;
     const ftime = myyfutureDate.getTime();
     const s_hours = myyfutureDate.getHours();
     const s_min = myyfutureDate.getMinutes();
     const s_sec = myyfutureDate.getSeconds();
-    console.log(s_hours, s_min, s_sec, "s_date");
+    // console.log(s_hours, s_min, s_sec, "s_date");
     const temptime = `${s_hours}:${s_min}:${s_sec}`;
     getdeltime(temptime);
     deldate(tempdate);
-    console.log(tempdate, "----------------");
+    // console.log(tempdate, "----------------");
     const ptime = new Date().getTime();
     const t = ftime - ptime;
-    console.log(ftime, "ftime");
-    console.log(ptime, "ptime");
+    // console.log(ftime, "ftime");
+    // console.log(ptime, "ptime");
     const hour12 = 43200000;
-    console.log(t);
+    // console.log(t);
     if (t >= hour12) {
-      console.log("time difference is more than 12 hours");
+      // console.log("time difference is more than 12 hours");
 
       close();
     } else {
-      console.log("time difference is less than 12 hour");
+      // console.log("time difference is less than 12 hour");
       open();
     }
     gettime(t);
   };
   const myyfutureDate = new Date(2021, 2, 23, 10, 30, 0);
 
-  console.log("myfuturedate", myyfutureDate.getTime());
+  // console.log("myfuturedate", myyfutureDate.getTime());
   const useStyles = makeStyles((theme) => ({
     container: {
       display: "flex",

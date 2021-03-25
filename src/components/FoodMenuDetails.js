@@ -63,6 +63,7 @@ export default function FoodMenuDetails(props) {
       <div className={Appstyles.card}>
         {products.map((val, index) =>
           val.dishes.map((a) => {
+            // console.log(a, "dishes");
             if (a.caterer_id == props.cid && check != val.category) {
               check = val.category;
               return (
@@ -86,6 +87,7 @@ export default function FoodMenuDetails(props) {
                   </div>
 
                   {val.dishes.map((f, i) => {
+                    // console.log(f, "dishes");
                     if (props.cid == f.caterer_id) {
                       let myfoodid = f.product_id;
                       // console.log(f, "i am f");
@@ -223,7 +225,7 @@ export default function FoodMenuDetails(props) {
             <div
               className={Appstyles.checkout_btn}
               onClick={() => {
-                console.log(cart[0].d_caterer_id, "i am cart");
+                // console.log(cart[0].d_caterer_id, "i am cart");
                 value.caid(cart[0].d_caterer_id);
               }}
             >

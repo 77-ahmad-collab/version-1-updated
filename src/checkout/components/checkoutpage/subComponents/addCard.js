@@ -21,7 +21,11 @@ function CheckoutInfo(props) {
     proc,
     emailid,
     ca_id,
+    cart,
+    productid,
   } = valuepart;
+
+  const [pid, setpid] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,31 +33,34 @@ function CheckoutInfo(props) {
   const onclick = () => setShowResults(true);
   const hour12 = 43200000;
   const handlepayment = (e) => {
-    console.log("you are handling payment");
+    // console.log("you are handling payment");
+    // cart.map((val) => console.log(val));
     getcashmethod(e.target.value);
   };
+  // console.log(productid);
   const [proceedpay, setproceedpay] = useState(false);
   useEffect(() => {
     if (time >= hour12 && myaddress && contact && payment && emailid) {
       setproceedpay(true);
-      console.log(time, myaddress, payment, contact);
-      console.log("procedd is true");
+      // console.log(time, myaddress, payment, contact);
+      // console.log("procedd is true");
     } else {
-      console.log("procedd is false");
+      // console.log("procedd is false");
       setproceedpay(false);
-      console.log(time, myaddress, payment, contact, "in else");
+      // console.log(time, myaddress, payment, contact, "in else");
     }
   }, [myaddress, time, payment, contact, emailid]);
   const handleproceedbtn = () => {
-    console.log(
-      time,
-      myaddress,
-      payment,
-      contact,
-      total,
-      deltime,
-      "Proceed btn"
-    );
+    // console.log(
+    //   time,
+    //   myaddress,
+    //   payment,
+    //   contact,
+    //   total,
+    //   deltime,
+    //   "Proceed btn"
+    // );
+    console.log(productid, "pid");
     proc(true);
     axios.post("http://damp-headland-05751.herokuapp.com/order/place", {
       address: myaddress,
@@ -64,12 +71,16 @@ function CheckoutInfo(props) {
       delivery_date: date,
       email: emailid,
       d_caterer_id: ca_id,
+      p_ids: pid,
     });
     getcashmethod("");
     // getvalue("");
     getcontact("");
     gettime("");
   };
+  // console.log(pid, "i am ids");
+  // const pids = cart.map((val) => console.log(val));
+
   return (
     <div className="info">
       <Rs.Card className={`${styles.checkoutcard} shadow p-4 bg-white rounded`}>

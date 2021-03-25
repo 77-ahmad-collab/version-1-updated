@@ -84,12 +84,15 @@ const Products = ({ productdata, add }) => {
     let d_catererid = delitem[0].d_caterer_id;
     // console.log(productid, d_catererid);
     // console.log("i am new item ", newitem);
-    axios.delete("https://damp-headland-05751.herokuapp.com/products/delete", {
-      data: {
-        product_id: productid,
-        d_caterer_id: d_catererid,
-      },
-    });
+    axios.delete(
+      `https://damp-headland-05751.herokuapp.com/products/delete/${d_catererid}`,
+      {
+        data: {
+          product_id: productid,
+          d_caterer_id: d_catererid,
+        },
+      }
+    );
     setoggle(!toggle);
     // setproductdata(
     //   productlist[catid - 1].dishes.filter((val) => {

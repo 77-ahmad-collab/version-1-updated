@@ -5,7 +5,7 @@ export const Fetchcardsdata = () => {
     const response = await axios.get(
       "https://damp-headland-05751.herokuapp.com/show/p"
     );
-    console.log(response, "cards api data");
+    // console.log(response, "cards api data");
     // console.log(response, "response");
 
     const data = await response.data;

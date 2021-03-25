@@ -18,10 +18,12 @@ import Sidebar from "../src/Dashboard/Navbar/Sidebar.jsx";
 import { FoodDataContext } from "./FoodData.js";
 import Error from "./Error.jsx";
 import Apppop from "./deghjee-order-history/customer/popUpForm.js";
+import OrderHistory from "./orderHistory.js";
 
 const Section = () => {
   const value = useContext(FoodDataContext);
-  const { login, log, logout, acess, acessid, proceed } = value;
+  const [user, setuser] = useState(localStorage.getItem("usertoken"));
+  const { login, log, logout, acess, acessid, proceed, userid } = value;
   // const [auth, setauth] = useState(localStorage.getItem("token"));
   // console.log(acess, "i am authy");
   const [t, sett] = useState(false);
@@ -34,6 +36,15 @@ const Section = () => {
     }
     // console.log("id for rendering compoent is ahngih", acess);
   }, [acess, localStorage.getItem("token")]);
+  useEffect(() => {
+    setuser(localStorage.getItem("usertoken"));
+    if (user == 500) {
+      // console.log("not authorized");
+    } else {
+      // console.log("authorized");
+    }
+    // console.log("id for rendering compoent is ahngih", acess);
+  }, [localStorage.getItem("usertoken"), userid]);
   return (
     <DataProvider>
       <div style={{ backgroundColor: "white" }}>
@@ -109,9 +120,8 @@ const Section = () => {
             <Route path="/*">
               <Apppop />
             </Route>
-
-            <Route path="*">
-              <Error />
+            <Route path="/orderhistory">
+              {userid == 500 ? <Header /> : <OrderHistory />}
             </Route>
             {/* <Route exact path="/settings">
           <Settings />

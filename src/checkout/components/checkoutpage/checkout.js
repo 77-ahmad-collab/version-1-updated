@@ -11,13 +11,29 @@ import { FoodDataContext } from "../../../components/FoodData";
 import Navbar from "../../../components/Navbar";
 const CheckOut = () => {
   const value = useContext(FoodDataContext);
-  console.log(value.products);
+  // console.log(value.products);
   const [cart, setCart] = value.cart;
   const [id, setid] = useState(-1);
-  console.log(cart);
+  const [pid, setpid] = useState([]);
+  // console.log(cart);
   // useEffect(() => {
   //   value.caid(id);
   // }, [id]);
+  // console.log(pid);
+  useEffect(() => {
+    // console.log("that useefect one time");
+    // console.log(cart);
+    const data = cart.map((val) => {
+      // console.log(val.product_id);
+      const { product_id } = val;
+      return { product_id };
+    });
+    console.log(data, "i am data arry");
+    setpid(data);
+
+    // console.log(data, "i am data");
+    value.pp(data);
+  }, []);
   return (
     <div className={styles.App}>
       <div className={styles.containercheckout}>
@@ -72,7 +88,11 @@ const CheckOut = () => {
                   {/* <h4 className="mt-3">Your Order</h4> */}
                   {cart.length !== 0 ? (
                     cart.map((val) => {
-                      console.log(val, "the one you have to etst");
+                      // console.log(val.product_id, "the one you have to etst");
+
+                      // setpid((value) => {
+                      //   return [...value, val.product_id];
+                      // });
                       const { p_name, count, p_minamount } = val;
                       // setid(val.d_caterer_id);
                       // console.log(fprice * count);

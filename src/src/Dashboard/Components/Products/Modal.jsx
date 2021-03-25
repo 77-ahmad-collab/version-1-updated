@@ -86,15 +86,18 @@ const Modal = ({ modal, dat, ids }) => {
       });
       dispatch({ type: CLOSE });
       setextra(!extra);
-      axios.put("https://damp-headland-05751.herokuapp.com/products/edit", {
-        product_id: ids.product_id,
-        id: ids.id,
-        p_name: val.pname,
-        p_description: val.pdesc,
-        // p_minamount: val.p_minamount,
-        d_caterer_id: dat.d_caterer_id,
-        category_id: iddetails.category_id,
-      });
+      axios.put(
+        `http://damp-headland-05751.herokuapp.com/products/edit/${dat.d_caterer_id}`,
+        {
+          product_id: ids.product_id,
+          id: ids.id,
+          p_name: val.pname,
+          p_description: val.pdesc,
+          // p_minamount: val.p_minamount,
+          d_caterer_id: dat.d_caterer_id,
+          category_id: iddetails.category_id,
+        }
+      );
     } else {
       setshow(true);
     }

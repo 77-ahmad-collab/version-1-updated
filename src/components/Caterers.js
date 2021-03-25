@@ -1,10 +1,10 @@
-import React, {createContext, useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 export const CaterersDataContext = createContext();
 
 export const CatererDataProvider = (props) => {
-    const [catererProducts, setCatererProducts] = useState([
+  const [catererProducts, setCatererProducts] = useState([
     //     {
     //     "d_caterer_id": 1,
     //     "imgsrc":"https://s3.amazonaws.com/redqteam.com/pickbazar/Food/atera_thumb.jpg",
@@ -33,7 +33,6 @@ export const CatererDataProvider = (props) => {
     //     "ca_workinghours": "24 hours",
     //     "ca_mobileno": 3456789123
     // },
-   
     // {
     //     "d_caterer_id": 3,
     //     "imgsrc":"https://s3.amazonaws.com/redqteam.com/pickbazar/Food/Namaste_thumb.jpg",
@@ -48,30 +47,27 @@ export const CatererDataProvider = (props) => {
     //     "ca_workinghours": "24 hours",
     //     "ca_mobileno": 3456789123
     // },
-])
+  ]);
 
-useEffect(() =>{
-    axios.get('http://damp-headland-05751.herokuapp.com/show/caterers')  
-    .then(response=>{   
-        console.log(response.data);
-        setCatererProducts(response.data);      
-    })
-    .catch(function(error){
+  useEffect(() => {
+    axios
+      .get("http://damp-headland-05751.herokuapp.com/show/caterers")
+      .then((response) => {
+        // console.log(response.data);
+        setCatererProducts(response.data);
+      })
+      .catch(function (error) {
         console.log(error);
-    })  
- },[])
+      });
+  }, []);
 
+  const value = {
+    catererProducts: [catererProducts, setCatererProducts],
+  };
 
-
-    const value = {
-        catererProducts: [catererProducts, setCatererProducts]
-    }
-    
-    return (
-        <CaterersDataContext.Provider value={value}>
-            {props.children}
-        </CaterersDataContext.Provider>
-    )
-}
-
-
+  return (
+    <CaterersDataContext.Provider value={value}>
+      {props.children}
+    </CaterersDataContext.Provider>
+  );
+};

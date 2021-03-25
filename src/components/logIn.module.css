@@ -235,3 +235,21 @@
   align-items: center;
   margin-bottom: 0;
 }
+.switchme {
+  display: flex;
+  justify-content: flex-end;
+  /* font-weight: bold;
+  color: rgb(0, 158, 127); */
+  margin-bottom: 10px;
+}
+.switchme button {
+  border: none;
+  outline: none;
+}
+.switchme button:focus {
+  outline: none;
+  border: none;
+}
+/* width: 100% !important;
+  text-align: center !important;
+} */

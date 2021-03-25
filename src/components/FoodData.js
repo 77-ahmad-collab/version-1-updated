@@ -46,11 +46,11 @@ export const FoodDataProvider = (props) => {
     axios
       .get("http://damp-headland-05751.herokuapp.com/show/card/caterer_id")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setFoodProducts(response.data);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
   // const [cart, setCart] = useState([])
@@ -92,7 +92,7 @@ export const FoodDataProvider = (props) => {
       );
     }
   };
-  console.log(cart);
+  // console.log(cart);
   useEffect(() => {
     const dataCart = JSON.parse(localStorage.getItem("dataCart"));
     if (dataCart) setCart(dataCart);
@@ -115,7 +115,7 @@ export const FoodDataProvider = (props) => {
   const [payment, setpayment] = useState("");
   const getcashmethod = (cash) => {
     setpayment(cash);
-    console.log("cailing");
+    // console.log("cailing");
   };
   const getvalue = (valuep) => {
     setmyaddress(valuep);
@@ -166,6 +166,15 @@ export const FoodDataProvider = (props) => {
   const cad = (val) => {
     setcatcards(val);
   };
+  const [userid, setuserid] = useState(500);
+  const setide = (val) => {
+    setuserid(val);
+  };
+  const [productid, setproid] = useState([]);
+  const pp = (val) => {
+    setproid(val);
+  };
+  // console.log(productid, "i am ids");
   const value = {
     products: [foodproducts, setFoodProducts],
     cart: [cart, setCart],
@@ -213,6 +222,10 @@ export const FoodDataProvider = (props) => {
     ter: ter,
     catcards: catcards,
     cad: cad,
+    userid: userid,
+    setide: setide,
+    productid: productid,
+    pp: pp,
   };
 
   return (

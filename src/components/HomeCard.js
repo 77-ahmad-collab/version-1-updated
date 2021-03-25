@@ -25,13 +25,13 @@ const HomeCard = (props) => {
     //   });
     // lo_card1(false);
     dispatch(Fetchcardsdata());
-    console.log("fetched");
+    // console.log("fetched");
     setProducts(props.cardsdata);
   }, []);
   useEffect(() => {
     setProducts(props.cardsdata);
   }, [props.cardsdata]);
-  console.log(props.cardsdata);
+  // console.log(props.cardsdata);
   const catererValue = useContext(CaterersDataContext);
   // const [products] = value.products;
   // const products = [];
