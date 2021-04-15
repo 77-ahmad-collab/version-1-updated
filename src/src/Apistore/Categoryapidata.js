@@ -9,7 +9,7 @@ export const Fetchcategorydata = () => {
     console.log(id, "id in category component");
 
     const response = await axios.get(
-      `https://damp-headland-05751.herokuapp.com/show/category/${id}`
+      `https://www.deghjee.com/show/category/${id}`
     );
     // setloa(false);
     // console.log(response, "coupon api data");

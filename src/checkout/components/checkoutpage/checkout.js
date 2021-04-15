@@ -9,6 +9,7 @@ import Email from "./subComponents/Email";
 import AddCard from "./subComponents/addCard";
 import { FoodDataContext } from "../../../components/FoodData";
 import Navbar from "../../../components/Navbar";
+
 const CheckOut = () => {
   const value = useContext(FoodDataContext);
   // console.log(value.products);

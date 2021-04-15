@@ -51,7 +51,7 @@ export const CatererDataProvider = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://damp-headland-05751.herokuapp.com/show/caterers")
+      .get("https://www.deghjee.com/show/caterers")
       .then((response) => {
         // console.log(response.data);
         setCatererProducts(response.data);

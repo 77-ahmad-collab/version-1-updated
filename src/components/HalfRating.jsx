@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 //   },
 // }));
 
-export default function HalfRating({ ind }) {
+export default function HalfRating({ mystar }) {
   // const classes = useStyles();
   const [count, setcount] = useState(2);
   return (
@@ -20,7 +20,10 @@ export default function HalfRating({ ind }) {
     <Rating
       name="size-medium"
       // defaultValue={count}
-      onChange={(e) => console.log(e.target.value, "my ind", ind)}
+      onChange={(e) => {
+        console.log(e.target.value, "my ind");
+        mystar(e.target.value);
+      }}
     />
     // </div>
   );

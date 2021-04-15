@@ -45,20 +45,23 @@ export default function Header() {
                   params: { category: searchCategory, search: searchTerm },
                 })
                 .then((response) => {
-                  console.log(response.data, val.term);
+                  console.log(response.data, val.term, "term");
                   // val.ter(searchCategory);
                   val.setsear(true);
-                  setSearhTerm("");
+                  // setSearhTerm("");
                   if (response.data == "Sorry, requested data not found") {
                     console.log("nooooooooooooo");
                     val.setsear(true);
                     val.fil([]);
+                    val.cad([]);
                   } else {
                     console.log("founddddddddddddd");
                     if (val.term == "Caterers") {
+                      val.fil([]);
                       val.cad(response.data);
                       console.log("caterrerererer");
                     } else {
+                      val.cad([]);
                       val.fil(response.data);
                       console.log("product");
                       console.log(typeof val.filcards);
@@ -75,6 +78,7 @@ export default function Header() {
               onChange={(event) => {
                 setSearhCategory(event.target.value);
                 val.ter(event.target.value);
+                console.log(event.target.value);
               }}
             >
               <option

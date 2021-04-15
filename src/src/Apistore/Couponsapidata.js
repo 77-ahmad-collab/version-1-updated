@@ -5,7 +5,7 @@ export const Fetchcoupondata = () => {
     const id = localStorage.getItem("token");
     console.log(id, "id in copuon api component");
     const response = await axios.get(
-      `https://damp-headland-05751.herokuapp.com/coupons/${id}`
+      `https://www.deghjee.com/coupons/${id}`
     );
     // console.log(response, "coupon api data");
     // console.log(response, "response");

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Rs from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Orders from "./orderDetails";
+import { Button } from "react-bootstrap";
 import styles from "./orderHistory.module.css";
 import HalfRating from "./HalfRating";
-
+import Modal from "./Modal";
 export default function OrderHistory() {
   const myLists = { Orders };
-
+  const [modalShowuser, setModalShowuser] = React.useState(false);
   return (
     <div className={styles.container}>
       <Rs.Card className={`${styles.orderHistory} shadow p-4 bg-white rounded`}>
@@ -64,17 +65,42 @@ export default function OrderHistory() {
                             />
                           )}
                         </span> */}
-                          <span className={styles.Status}>Status</span>
+                          <h5 className={styles.Status}>Status</h5>
 
                           <span className="mt-3">{status}</span>
                         </div>
-                        <div>
-                          <h6 onClick={() => console.log(index)}>Rating</h6>
+                        <div className={styles.rate}>
+                          <h4 className="text-center">Rating</h4>
+                          <h6 onClick={() => console.log(index)}>
+                            <button
+                              onClick={() => {
+                                setModalShowuser(true);
+                                // props.onHide();
+                                // props.onUser();
+                                // props.onuserlog();
+                                // props.onHide();
+                              }}
+                              type="button"
+                              href="#work"
+                              style={{
+                                backgroundColor: "#009E7F",
+                                paddingTop: 10,
+                                paddingLeft: 15,
+                                paddingRight: 15,
+                                paddingBottom: 10,
+                                color: "white",
+                                borderRadius: 5,
+                                marginTop: "10px",
+                              }}
+                            >
+                              Click here to rate
+                            </button>
+                          </h6>
                         </div>
                       </div>
                       <hr />
                     </li>
-                    {<HalfRating ind={index} />}
+                    {/* {<HalfRating ind={index} />} */}
                   </>
                 );
               })
@@ -84,6 +110,12 @@ export default function OrderHistory() {
           </ul>
         </Rs.Card.Body>
       </Rs.Card>
+      <Modal
+        show={modalShowuser}
+        onHide={() => setModalShowuser(false)}
+        onmycart={() => setModalShowuser(true)}
+        // onSignupuser={() => setSignUpuser(true)}
+      />
     </div>
   );
 }

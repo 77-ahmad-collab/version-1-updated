@@ -158,7 +158,7 @@ export const FoodDataProvider = (props) => {
   const setsear = (val) => {
     setsearch(val);
   };
-  const [term, setterm] = useState("");
+  const [term, setterm] = useState("Caterers");
   const ter = (val) => {
     setterm(val);
   };

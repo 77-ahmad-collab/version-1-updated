@@ -39,7 +39,9 @@ const HomeCard = (props) => {
   const [limit, setLimit] = useState(8);
   const { searchItem } = useParams();
   const { searchCategory } = useParams();
-
+  console.log(filcards, "fillll");
+  console.log(catcards, "catcards");
+  console.log(term, "term");
   return (
     <div
       className={Appstyles.card}
@@ -73,7 +75,7 @@ const HomeCard = (props) => {
               })
             )
           ) : filcards.length == 0 ? (
-            <h2>No item matched again</h2>
+            <h2>No item matched again yes</h2>
           ) : (
             filcards.map((val) => {
               return (
@@ -87,11 +89,11 @@ const HomeCard = (props) => {
                   feat={val.feat}
                   fill={val.fill}
                   imgsrc={val.image_path}
-                  detail={val.ca_headline}
+                  detail={val.p_description}
                   delivery={val.delivery}
                   time={val.time}
                   price={val.p_minamount}
-                  mname={val.ca_name}
+                  mname={val.p_name}
                 />
               );
             })

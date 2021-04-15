@@ -71,7 +71,7 @@ function CheckoutInfo(props) {
       delivery_date: date,
       email: emailid,
       d_caterer_id: ca_id,
-      p_ids: pid,
+      product_ids: pid,
     });
     getcashmethod("");
     // getvalue("");

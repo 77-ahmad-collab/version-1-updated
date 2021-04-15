@@ -5,7 +5,7 @@ export const Fetchproductdata = () => {
     const id = localStorage.getItem("token");
     console.log(id, "id in api product component");
     const response = await axios.get(
-      `https://damp-headland-05751.herokuapp.com/show/products/${id}`
+      `https://www.deghjee.com/show/products/${id}`
     );
     // console.log(response, "coupon api data");
     // console.log(response, "response");
